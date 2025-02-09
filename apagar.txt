@@ -1,0 +1,4 @@
+apagar arquivo 
+ok
+pronto
+salvar
