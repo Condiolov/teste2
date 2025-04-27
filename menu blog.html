@@ -15,29 +15,32 @@
 
         /* Container do menu */
         .menu-container {
-            position: fixed;
-            bottom: 15px;
-            z-index: 1000;
-            width: 100%;
-            margin: 0 auto;
-            place-items: center;
+          position: fixed;
+    bottom: 15px;
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+    z-index: 1000;
+    width: 100%;
+    margin: 0 auto;
+    place-items: center;
         }
 
         /* Botão principal */
         .menu-toggle {
             width: 50px;
-            height: 50px;
-            background: #2c3e50;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            font-size: 24px;
-            color: white;
-            transition: transform 0.3s ease, background 0.3s ease;
-            flex-wrap: wrap;
-            justify-content: center;
+    height: 50px;
+    background: #2c3e50;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    display: flex
+;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+    transition: transform 0.3s ease, background 0.3s ease;
+    flex-wrap: wrap;
+    justify-content: center;
         }
 
         .menu-toggle:hover {
@@ -48,37 +51,40 @@
         /* Container dos itens (balão) */
         .menu-items {
            position: fixed;
-    bottom: -50vh;
+    bottom: -100%;
     left: 50%;
-    width: calc(100% - 30px);
-    margin-bottom: 15px;
+    /* right: 15px; */
+    width: 100%;
+    /* border-radius: 15px 15px 0 0; */
     padding: 20px;
-    background: #ffffff;
-    border-radius: 15px;
     box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
     display: flex
 ;
     gap: 15px;
-    opacity: 0;
-    /* transform: translateX(-50%); */
+    /* opacity: 0; */
+   transform: translateX(-50%); /* Centraliza horizontalmente */
     transition: bottom 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.4s ease;
-    pointer-events: none;
+            pointer-events: none;
+    /* box-sizing: border-box; */
     max-height: calc(50vh - 15px);
+    /* overflow-y: auto; */
+            margin-bottom: 15px;
+            border-radius: 15px; /* Bordas arredondadas */
+                box-sizing: border-box;
     z-index: 999;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     align-content: flex-end;
-    box-sizing: border-box;
         }
 
         /* Estado ativo do menu principal */
         .menu-container.active .menu-items {
-/*              left: 50%; */
-            bottom: 65px; /* Aparece acima do botão principal */
+            bottom: 65px;
             opacity: 1;
-            transform: translateX(-50%); /* Mantém centralização horizontal */
+            /* Ajusta a transformação no estado ativo para manter a centralização */
+            transform: translateX(-50%);
             pointer-events: auto;
         }
 
@@ -279,6 +285,7 @@
 			                // Fecha o submenu temporariamente para animação
 			                menuContainer.classList.remove('active');
 			                setTimeout(() => {
+			//                     menuContainer.classList.add('active');
 			                    menuItemsContainer.classList.remove('submenu-active');
 			                    submenus.forEach(submenu => submenu.classList.remove('active'));
 			                }, 400); // Tempo igual à duração da animação
